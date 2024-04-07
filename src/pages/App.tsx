@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/images/logo.svg";
+import Button from "@mui/material/Button";
 
 import "../styles/App.css";
 
@@ -11,6 +12,7 @@ const App: React.FC = () => {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <Button variant="contained">Click me!</Button>
         <a
           className="App-link"
           href="https://reactjs.org"
