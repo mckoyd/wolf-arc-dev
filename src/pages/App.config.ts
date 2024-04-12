@@ -4,5 +4,6 @@ import { tss } from "tss-react/mui";
 export const useAppStyles = tss.create(({ theme }) => ({
   toolbarMargin: {
     ...(theme.mixins.toolbar as CSSProperties),
+    marginBottom: "3.5em",
   },
 }));

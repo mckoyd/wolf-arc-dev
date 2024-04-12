@@ -14,6 +14,7 @@ const App: React.FC = () => {
         <Header />
       </ElevationScroll>
       <div className={classes.toolbarMargin} />
+      Hello!
     </div>
   );
 };
