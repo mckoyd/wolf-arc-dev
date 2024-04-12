@@ -2,9 +2,15 @@ import { CSSProperties } from "react";
 import { tss } from "tss-react/mui";
 
 export const useHeaderStyles = tss.create(({ theme }) => ({
+  logoBtn: {
+    padding: 0,
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
+
   logo: {
     height: "7em",
-    padding: 0,
   },
 
   tabsContainer: {
@@ -18,6 +24,7 @@ export const useHeaderStyles = tss.create(({ theme }) => ({
 
     "&.Mui-selected": {
       color: "white",
+      fontWeight: 900,
     },
   },
 
