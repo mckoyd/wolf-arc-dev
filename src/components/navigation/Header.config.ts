@@ -15,6 +15,10 @@ export const useHeaderStyles = tss.create(({ theme }) => ({
     ...(theme.typography.headerTab as CSSProperties),
     minWidth: 10,
     marginLeft: "25px",
+
+    "&.Mui-selected": {
+      color: "white",
+    },
   },
 
   estimateBtn: {

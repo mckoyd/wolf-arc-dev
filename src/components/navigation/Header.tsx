@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Tabs from "@mui/material/Tabs";
@@ -10,11 +10,21 @@ import { useHeaderStyles } from "./Header.config";
 
 const Header: React.FC = () => {
   const { classes } = useHeaderStyles();
+  const [headerTabValue, setHeaderTabValue] = useState<number>(1);
+
+  const handleHeaderTabChange = (_: React.SyntheticEvent, newValue: number) => {
+    setHeaderTabValue(newValue);
+  };
   return (
     <AppBar position="fixed" color="primary">
       <Toolbar disableGutters>
         <img src={logo} alt="company logo" className={classes.logo} />
-        <Tabs className={classes.tabsContainer}>
+        <Tabs
+          value={headerTabValue}
+          onChange={handleHeaderTabChange}
+          className={classes.tabsContainer}
+          indicatorColor="primary"
+        >
           <Tab label="Home" className={classes.headerTab} />
           <Tab label="Services" className={classes.headerTab} />
           <Tab label="The Revolution" className={classes.headerTab} />
