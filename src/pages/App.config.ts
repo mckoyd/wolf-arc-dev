@@ -5,5 +5,11 @@ export const useAppStyles = tss.create(({ theme }) => ({
   toolbarMargin: {
     ...(theme.mixins.toolbar as CSSProperties),
     marginBottom: "3em",
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "1.25em",
+    },
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "2em",
+    },
   },
 }));

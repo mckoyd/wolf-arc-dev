@@ -12,6 +12,12 @@ export const useHeaderStyles = tss.create(({ theme }) => ({
 
   logo: {
     height: "7em",
+    [theme.breakpoints.down("xs")]: {
+      height: "4.5em",
+    },
+    [theme.breakpoints.down("md")]: {
+      height: "6em",
+    },
   },
 
   tabsContainer: {
