@@ -17,6 +17,7 @@ const Header: React.FC = () => {
   const [headerTabValue, setHeaderTabValue] = useState<number>(0);
   const [anchorElement, setAnchorElement] = useState<null | HTMLElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedMenuItem, setSelectedMenuItem] = useState<number>(0);
 
   const handleHeaderTabChange = (_: React.SyntheticEvent, newValue: number) => {
     setHeaderTabValue(newValue);
@@ -25,6 +26,15 @@ const Header: React.FC = () => {
   const handleHeaderTabMenuMouseover = (e: React.MouseEvent<HTMLElement>) => {
     setAnchorElement(e.currentTarget);
     setIsOpen(true);
+  };
+
+  const handleHeaderMenuItemClick = (
+    e: React.MouseEvent<HTMLElement>,
+    index: number
+  ) => {
+    setSelectedMenuItem(index);
+    setAnchorElement(null);
+    setIsOpen(false);
   };
 
   const handleHeaderTabMenuClose = () => {
@@ -64,6 +74,7 @@ const Header: React.FC = () => {
           to="/"
           className={classes.logoBtn}
           disableRipple
+          onClick={() => setHeaderTabValue(0)}
         >
           <img src={logo} alt="company logo" className={classes.logo} />
         </Button>
@@ -125,10 +136,12 @@ const Header: React.FC = () => {
         >
           {menuItems.map(({ name, link }: IMenuItem, index: number) => (
             <MenuItem
-              onClick={handleHeaderTabMenuClose}
+              onClick={(e) => handleHeaderMenuItemClick(e, index)}
+              selected={index === selectedMenuItem && headerTabValue === 1}
               component={Link}
               classes={{ root: classes.menuItem }}
               to={link}
+              key={`${name}-${index}`}
             >
               {name}
             </MenuItem>
