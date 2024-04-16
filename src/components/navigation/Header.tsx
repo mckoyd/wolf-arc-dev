@@ -70,7 +70,7 @@ const Header: React.FC = () => {
         }
       }
     );
-  }, [window.location.hash]);
+  }, []);
 
   const tabs: JSX.Element = (
     <>
@@ -120,6 +120,8 @@ const Header: React.FC = () => {
         onClose={handleHeaderTabMenuClose}
         MenuListProps={{ onMouseLeave: handleHeaderTabMenuClose }}
         elevation={0}
+        keepMounted
+        style={{ zIndex: 1302 }}
       >
         {menuItems.map(({ name, link }: IMenuItem, index: number) => (
           <MenuItem
@@ -147,6 +149,7 @@ const Header: React.FC = () => {
         onOpen={() => setOpenDrawer(true)}
         classes={{ paper: classes.drawer }}
       >
+        <div className={classes.toolbarMargin} />
         <List disablePadding>
           {[
             ...routes,
@@ -188,7 +191,7 @@ const Header: React.FC = () => {
   );
 
   return (
-    <AppBar position="fixed" color="primary">
+    <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar disableGutters>
         <Button
           component={Link}

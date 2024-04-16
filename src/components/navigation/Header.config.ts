@@ -3,6 +3,19 @@ import { tss } from "tss-react/mui";
 import { IMenuItem, IRoute } from "../../interfaces";
 
 export const useHeaderStyles = tss.create(({ theme }) => ({
+  appBar: {
+    zIndex: theme.zIndex.modal + 1,
+  },
+  toolbarMargin: {
+    ...(theme.mixins.toolbar as CSSProperties),
+    marginBottom: "3em",
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "1.25em",
+    },
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "2em",
+    },
+  },
   logoBtn: {
     padding: 0,
     "&:hover": {
