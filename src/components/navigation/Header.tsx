@@ -6,6 +6,12 @@ import Tab from "@mui/material/Tab";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import MenuIcon from "@mui/icons-material/Menu";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
@@ -15,6 +21,9 @@ import { Link } from "react-router-dom";
 import { IMenuItem } from "../../interfaces";
 
 const Header: React.FC = () => {
+  const iOS =
+    typeof navigator !== "undefined" &&
+    /iPad|iPhone|iPod/.test(navigator.userAgent);
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const { classes } = useHeaderStyles();
@@ -22,6 +31,7 @@ const Header: React.FC = () => {
   const [anchorElement, setAnchorElement] = useState<null | HTMLElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedMenuItem, setSelectedMenuItem] = useState<number>(0);
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
 
   const handleHeaderTabChange = (_: React.SyntheticEvent, newValue: number) => {
     setHeaderTabValue(newValue);
@@ -71,7 +81,7 @@ const Header: React.FC = () => {
     }
   }, [window.location.hash]);
 
-  const tabs = (
+  const tabs: JSX.Element = (
     <>
       <Tabs
         value={headerTabValue}
@@ -145,6 +155,76 @@ const Header: React.FC = () => {
     </>
   );
 
+  const drawer = (
+    <>
+      <SwipeableDrawer
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        onOpen={() => setOpenDrawer(true)}
+      >
+        <List disablePadding>
+          <ListItemButton
+            onClick={() => setOpenDrawer(false)}
+            divider
+            component={Link}
+            to="/"
+          >
+            <ListItemText disableTypography>Home</ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => setOpenDrawer(false)}
+            divider
+            component={Link}
+            to="/services"
+          >
+            <ListItemText disableTypography>Services</ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => setOpenDrawer(false)}
+            divider
+            component={Link}
+            to="/revolution"
+          >
+            <ListItemText disableTypography>The Revolution</ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => setOpenDrawer(false)}
+            divider
+            component={Link}
+            to="/about"
+          >
+            <ListItemText disableTypography>About Us</ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => setOpenDrawer(false)}
+            divider
+            component={Link}
+            to="/contact"
+          >
+            <ListItemText disableTypography>Contact Us</ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => setOpenDrawer(false)}
+            divider
+            component={Link}
+            to="/estimate"
+          >
+            <ListItemText disableTypography>Free Estimate</ListItemText>
+          </ListItemButton>
+        </List>
+      </SwipeableDrawer>
+      <IconButton
+        className={classes.drawerIconContainer}
+        onClick={() => setOpenDrawer(!openDrawer)}
+        disableRipple
+      >
+        <MenuIcon className={classes.drawerIcon} />
+      </IconButton>
+    </>
+  );
+
   return (
     <AppBar position="fixed" color="primary">
       <Toolbar disableGutters>
@@ -157,7 +237,7 @@ const Header: React.FC = () => {
         >
           <img src={logo} alt="company logo" className={classes.logo} />
         </Button>
-        {matches ? null : tabs}
+        {matches ? drawer : tabs}
       </Toolbar>
     </AppBar>
   );

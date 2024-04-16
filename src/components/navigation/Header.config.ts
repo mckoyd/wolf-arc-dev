@@ -54,6 +54,16 @@ export const useHeaderStyles = tss.create(({ theme }) => ({
       opacity: 1,
     },
   },
+  drawerIconContainer: {
+    marginLeft: "auto",
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
+  drawerIcon: {
+    height: "50px",
+    width: "50px",
+  },
 }));
 
 export const menuItems: IMenuItem[] = [
