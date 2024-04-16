@@ -4,7 +4,12 @@ export interface IWrapper {
   children: React.ReactElement;
 }
 
-export interface IMenuItem {
+export interface IMenuItem extends IRoute {
+  selectedIndex: number;
+}
+
+export interface IRoute {
   name: string;
   link: string;
+  activeIndex: number;
 }

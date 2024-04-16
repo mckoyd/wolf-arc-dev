@@ -16,9 +16,9 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 import logo from "../../assets/images/logo.svg";
-import { menuItems, useHeaderStyles } from "./Header.config";
+import { menuItems, routes, useHeaderStyles } from "./Header.config";
 import { Link } from "react-router-dom";
-import { IMenuItem } from "../../interfaces";
+import { IMenuItem, IRoute } from "../../interfaces";
 
 const Header: React.FC = () => {
   const iOS =
@@ -58,27 +58,18 @@ const Header: React.FC = () => {
   };
 
   useEffect(() => {
-    switch (window.location.hash.replace("#", "")) {
-      case "/":
-        setHeaderTabValue(0);
-        break;
-      case "/services":
-      case "/customsoftware":
-      case "/mobileapps":
-        setHeaderTabValue(1);
-        break;
-      case "/revolution":
-        setHeaderTabValue(2);
-        break;
-      case "/about":
-        setHeaderTabValue(3);
-        break;
-      case "/contact":
-        setHeaderTabValue(4);
-        break;
-      default:
-        setHeaderTabValue(0);
-    }
+    [...routes, ...menuItems].forEach(
+      ({ name, link }: IRoute, index: number) => {
+        const tabValue = index > 4 ? 1 : index;
+        switch (window.location.hash.replace("#", "")) {
+          case link:
+            setHeaderTabValue(tabValue);
+            break;
+          default:
+            break;
+        }
+      }
+    );
   }, [window.location.hash]);
 
   const tabs: JSX.Element = (
@@ -89,37 +80,28 @@ const Header: React.FC = () => {
         className={classes.tabsContainer}
         indicatorColor="primary"
       >
-        <Tab
-          label="Home"
-          className={classes.headerTab}
-          component={Link}
-          to="/"
-        />
-        <Tab
-          aria-owns={anchorElement ? "services-menu" : undefined}
-          aria-haspopup={anchorElement ? "true" : undefined}
-          onMouseOver={handleHeaderTabMenuMouseover}
-          label="Services"
-          className={classes.headerTab}
-        />
-        <Tab
-          label="The Revolution"
-          className={classes.headerTab}
-          component={Link}
-          to="/revolution"
-        />
-        <Tab
-          label="About Us"
-          className={classes.headerTab}
-          component={Link}
-          to="/about"
-        />
-        <Tab
-          label="Contact Us"
-          className={classes.headerTab}
-          component={Link}
-          to="/contact"
-        />
+        {routes.map(({ name, link, activeIndex }: IRoute, index: number) =>
+          link === "/services" ? (
+            <Tab
+              aria-owns={anchorElement ? "services-menu" : undefined}
+              aria-haspopup={anchorElement ? "true" : undefined}
+              onMouseOver={handleHeaderTabMenuMouseover}
+              label={name}
+              className={classes.headerTab}
+              component={Link}
+              to={link}
+              key={`${name}-${activeIndex}-${index}`}
+            />
+          ) : (
+            <Tab
+              label={name}
+              component={Link}
+              to={link}
+              className={classes.headerTab}
+              key={`${name}-${activeIndex}-${index}`}
+            />
+          )
+        )}
       </Tabs>
       <Button
         variant="contained"
@@ -166,128 +148,33 @@ const Header: React.FC = () => {
         classes={{ paper: classes.drawer }}
       >
         <List disablePadding>
-          <ListItemButton
-            onClick={() => {
-              setOpenDrawer(false);
-              setHeaderTabValue(0);
-            }}
-            divider
-            component={Link}
-            to="/"
-            selected={headerTabValue === 0}
-          >
-            <ListItemText
-              className={
-                headerTabValue === 0
-                  ? cx(classes.drawerItem, classes.drawerItemSelected)
-                  : classes.drawerItem
-              }
-              disableTypography
+          {[
+            ...routes,
+            { name: "Free Estimate", link: "/estimate", activeIndex: 5 },
+          ].map((route, index) => (
+            <ListItemButton
+              onClick={() => {
+                setOpenDrawer(false);
+                setHeaderTabValue(index);
+              }}
+              divider
+              component={Link}
+              to={route.link}
+              selected={headerTabValue === route.activeIndex}
+              key={`${route.name}-${index}`}
             >
-              Home
-            </ListItemText>
-          </ListItemButton>
-          <ListItemButton
-            onClick={() => {
-              setOpenDrawer(false);
-              setHeaderTabValue(1);
-            }}
-            divider
-            component={Link}
-            to="/services"
-            selected={headerTabValue === 1}
-          >
-            <ListItemText
-              className={
-                headerTabValue === 1
-                  ? cx(classes.drawerItem, classes.drawerItemSelected)
-                  : classes.drawerItem
-              }
-              disableTypography
-            >
-              Services
-            </ListItemText>
-          </ListItemButton>
-          <ListItemButton
-            onClick={() => {
-              setOpenDrawer(false);
-              setHeaderTabValue(2);
-            }}
-            divider
-            component={Link}
-            to="/revolution"
-            selected={headerTabValue === 2}
-          >
-            <ListItemText
-              className={
-                headerTabValue === 2
-                  ? cx(classes.drawerItem, classes.drawerItemSelected)
-                  : classes.drawerItem
-              }
-              disableTypography
-            >
-              The Revolution
-            </ListItemText>
-          </ListItemButton>
-          <ListItemButton
-            onClick={() => {
-              setOpenDrawer(false);
-              setHeaderTabValue(3);
-            }}
-            divider
-            component={Link}
-            to="/about"
-            selected={headerTabValue === 3}
-          >
-            <ListItemText
-              className={
-                headerTabValue === 3
-                  ? cx(classes.drawerItem, classes.drawerItemSelected)
-                  : classes.drawerItem
-              }
-              disableTypography
-            >
-              About Us
-            </ListItemText>
-          </ListItemButton>
-          <ListItemButton
-            onClick={() => {
-              setOpenDrawer(false);
-              setHeaderTabValue(4);
-            }}
-            divider
-            component={Link}
-            to="/contact"
-            selected={headerTabValue === 4}
-          >
-            <ListItemText
-              className={
-                headerTabValue === 4
-                  ? cx(classes.drawerItem, classes.drawerItemSelected)
-                  : classes.drawerItem
-              }
-              disableTypography
-            >
-              Contact Us
-            </ListItemText>
-          </ListItemButton>
-          <ListItemButton
-            onClick={() => setOpenDrawer(false)}
-            divider
-            component={Link}
-            to="/estimate"
-            className={classes.drawerItemEstimate}
-          >
-            <ListItemText
-              className={cx(
-                classes.drawerItem,
-                headerTabValue === 0 && classes.drawerItemSelected
-              )}
-              disableTypography
-            >
-              Free Estimate
-            </ListItemText>
-          </ListItemButton>
+              <ListItemText
+                className={
+                  headerTabValue === route.activeIndex
+                    ? cx(classes.drawerItem, classes.drawerItemSelected)
+                    : classes.drawerItem
+                }
+                disableTypography
+              >
+                {route.name}
+              </ListItemText>
+            </ListItemButton>
+          ))}
         </List>
       </SwipeableDrawer>
       <IconButton
