@@ -64,6 +64,20 @@ export const useHeaderStyles = tss.create(({ theme }) => ({
     height: "50px",
     width: "50px",
   },
+  drawer: {
+    backgroundColor: theme.palette.common.blue,
+  },
+  drawerItem: {
+    ...(theme.typography.headerTab as CSSProperties),
+    opacity: "0.7",
+    color: "white",
+  },
+  drawerItemEstimate: {
+    backgroundColor: theme.palette.common.orange,
+  },
+  drawerItemSelected: {
+    opacity: 1,
+  },
 }));
 
 export const menuItems: IMenuItem[] = [
