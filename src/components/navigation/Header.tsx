@@ -75,7 +75,7 @@ const Header: React.FC<IHeaderFooter> = ({
         }
       }
     );
-  }, []);
+  }, [setHeaderTabValue]);
 
   const tabs: JSX.Element = (
     <>

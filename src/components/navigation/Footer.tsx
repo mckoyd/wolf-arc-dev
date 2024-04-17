@@ -1,6 +1,9 @@
 import React from "react";
 import { useFooterStyles } from "./Footer.config";
 import FooterAdornment from "../../assets/images/Footer Adornment.svg";
+import FacebookIcon from "../../assets/images/facebook.svg";
+import TwitterIcon from "../../assets/images/twitter.svg";
+import InstagramIcon from "../../assets/images/instagram.svg";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import { IHeaderFooter } from "../../interfaces";
@@ -176,6 +179,49 @@ const Footer: React.FC<IHeaderFooter> = ({
         src={FooterAdornment}
         alt="black decorative slash"
       />
+
+      <Grid
+        container
+        justifyContent="flex-end"
+        spacing={2}
+        className={classes.socialContainer}
+      >
+        <Grid
+          item
+          component={"a"}
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            alt="facebook logo"
+            src={FacebookIcon}
+            className={classes.icon}
+          />
+        </Grid>
+        <Grid
+          item
+          component={"a"}
+          href="https://www.twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img alt="twitter logo" src={TwitterIcon} className={classes.icon} />
+        </Grid>
+        <Grid
+          item
+          component={"a"}
+          href="https://www.instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            alt="instagram logo"
+            src={InstagramIcon}
+            className={classes.icon}
+          />
+        </Grid>
+      </Grid>
     </footer>
   );
 };
