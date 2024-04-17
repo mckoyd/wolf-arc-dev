@@ -18,19 +18,24 @@ import { useTheme } from "@mui/material/styles";
 import logo from "../../assets/images/logo.svg";
 import { menuItems, routes, useHeaderStyles } from "./Header.config";
 import { Link } from "react-router-dom";
-import { IMenuItem, IRoute } from "../../interfaces";
+import { IHeaderFooter, IMenuItem, IRoute } from "../../interfaces";
 
-const Header: React.FC = () => {
+const Header: React.FC<IHeaderFooter> = ({
+  selectedMenuItem,
+  setSelectedMenuItem,
+  headerTabValue,
+  setHeaderTabValue,
+}) => {
   const iOS =
     typeof navigator !== "undefined" &&
     /iPad|iPhone|iPod/.test(navigator.userAgent);
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const { classes, cx } = useHeaderStyles();
-  const [headerTabValue, setHeaderTabValue] = useState<number>(0);
+
   const [anchorElement, setAnchorElement] = useState<null | HTMLElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedMenuItem, setSelectedMenuItem] = useState<number>(0);
+
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
 
   const handleHeaderTabChange = (_: React.SyntheticEvent, newValue: number) => {

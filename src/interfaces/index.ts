@@ -13,3 +13,10 @@ export interface IRoute {
   link: string;
   activeIndex: number;
 }
+
+export interface IHeaderFooter {
+  selectedMenuItem: number;
+  setSelectedMenuItem: (menuItemIndex: number) => void;
+  headerTabValue: number;
+  setHeaderTabValue: (headerTabValue: number) => void;
+}

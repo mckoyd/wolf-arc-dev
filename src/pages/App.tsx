@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ElevationScroll from "../components/wrappers/ElevationScroll";
 import Header from "../components/navigation/Header";
@@ -6,13 +6,22 @@ import { useAppStyles } from "./App.config";
 
 import "../styles/App.css";
 import { Route, Routes } from "react-router-dom";
+import Footer from "../components/navigation/Footer";
 
 const App: React.FC = () => {
   const { classes } = useAppStyles();
+  const [selectedMenuItem, setSelectedMenuItem] = useState<number>(0);
+  const [headerTabValue, setHeaderTabValue] = useState<number>(0);
+
   return (
     <div className="app">
       <ElevationScroll>
-        <Header />
+        <Header
+          selectedMenuItem={selectedMenuItem}
+          setSelectedMenuItem={setSelectedMenuItem}
+          headerTabValue={headerTabValue}
+          setHeaderTabValue={setHeaderTabValue}
+        />
       </ElevationScroll>
       <div className={classes.toolbarMargin} />
       <Routes>
@@ -26,7 +35,12 @@ const App: React.FC = () => {
         <Route path="/contact" element={<div>Contact Us</div>} />
         <Route path="/estimate" element={<div>Estimate</div>} />
       </Routes>
-      Hello!
+      <Footer
+        selectedMenuItem={selectedMenuItem}
+        setSelectedMenuItem={setSelectedMenuItem}
+        headerTabValue={headerTabValue}
+        setHeaderTabValue={setHeaderTabValue}
+      />
     </div>
   );
 };
