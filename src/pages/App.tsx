@@ -7,6 +7,7 @@ import { useAppStyles } from "./App.config";
 import "../styles/App.css";
 import { Route, Routes } from "react-router-dom";
 import Footer from "../components/navigation/Footer";
+import { Grid } from "@mui/material";
 
 const App: React.FC = () => {
   const { classes } = useAppStyles();
@@ -14,7 +15,7 @@ const App: React.FC = () => {
   const [headerTabValue, setHeaderTabValue] = useState<number>(0);
 
   return (
-    <div className="app">
+    <Grid container direction="column" className={classes.app}>
       <ElevationScroll>
         <Header
           selectedMenuItem={selectedMenuItem}
@@ -41,7 +42,7 @@ const App: React.FC = () => {
         headerTabValue={headerTabValue}
         setHeaderTabValue={setHeaderTabValue}
       />
-    </div>
+    </Grid>
   );
 };
 

@@ -5,6 +5,7 @@ export const useFooterStyles = tss.create(({ theme }) => ({
     backgroundColor: theme.palette.common.blue,
     width: "100%",
     zIndex: 1302,
+    marginTop: "auto",
   },
   adornment: {
     width: "25em",
