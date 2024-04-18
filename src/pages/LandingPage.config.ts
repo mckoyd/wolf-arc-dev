@@ -10,4 +10,16 @@ export const useLandingPageStyles = tss.create(({ theme }) => ({
       marginTop: "2em",
     },
   },
+  iOSAndroidContainer: {
+    marginTop: "12em",
+    [theme.breakpoints.down("sm")]: {
+      padding: 25,
+    },
+  },
+  icon: {
+    marginLeft: "2em",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+    },
+  },
 }));
