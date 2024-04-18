@@ -10,16 +10,19 @@ declare module "@mui/material/styles" {
   interface TypographyVariants {
     headerTab: CSSProperties;
     estimateBtn: CSSProperties;
+    learnBtn: CSSProperties;
   }
 
   interface TypographyVariantsOptions {
     headerTab?: CSSProperties;
     estimateBtn?: CSSProperties;
+    learnBtn?: CSSProperties;
   }
 }
 
 const blue = "#0b72b9",
-  orange = "#ffba60";
+  orange = "#ffba60",
+  grey = "#868686";
 
 const theme: Theme = createTheme({
   palette: {
@@ -67,6 +70,20 @@ const theme: Theme = createTheme({
       fontSize: "1.75rem",
       color: blue,
       fontWeight: 700,
+    },
+    subtitle1: {
+      fontSize: "1.25rem",
+      fontWeight: 300,
+      color: grey,
+    },
+    learnBtn: {
+      borderColor: blue,
+      color: blue,
+      borderWidth: 2,
+      textTransform: "none",
+      borderRadius: 50,
+      fontFamily: "Roboto",
+      fontWeight: "bold",
     },
   },
 });

@@ -1,65 +1,44 @@
 import React from "react";
-import Lottie from "react-lottie";
 
 import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 
-import ButtonArrow from "../components/ButtonArrow.tsx";
-import animationData from "../assets/animations/landinganimation/data.js";
 import { useLandingPageStyles } from "./LandingPage.config.ts";
 import { useTheme } from "@mui/material/styles";
+import HeroBlock from "../components/HeroBlock.tsx";
+import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
+import ButtonArrow from "../components/ButtonArrow.tsx";
+import CustomSoftwareIcon from "../assets/images/Custom Software Icon.svg";
 
 const LandingPage: React.FC = () => {
   const theme = useTheme();
   const { classes } = useLandingPageStyles();
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+
   return (
     <Grid container direction="column" className={classes.mainContainer}>
+      <HeroBlock />
       <Grid item>
-        <Grid
-          container
-          justifyContent="flex-end"
-          alignItems="center"
-          direction="row"
-        >
-          <Grid item sm className={classes.heroTextContainer}>
-            <Typography variant="h2" align="center">
-              Bringing West Coast Technology
-              <br />
-              to the Midwest
+        <Grid container direction="row">
+          <Grid item>
+            <Typography variant="h4">Custom Software Development</Typography>
+            <Typography variant="subtitle1" className={classes.subtitle}>
+              Save Energy. Save Time. Save Money.
             </Typography>
-            <Grid
-              container
-              justifyContent="center"
-              className={classes.buttonContainer}
-            >
-              <Grid item>
-                <Button variant="contained" className={classes.estimateButton}>
-                  Free Estimate
-                </Button>
-              </Grid>
-              <Grid item>
-                <Button variant="outlined" className={classes.learnButtonHero}>
-                  <span style={{ marginRight: 10 }}>Learn More</span>
-                  <ButtonArrow
-                    width="15"
-                    height="15"
-                    fill={theme.palette.common.blue}
-                  />
-                </Button>
-              </Grid>
-            </Grid>
+            <Typography variant="subtitle1">
+              Complete digital solutions, from investigation to{" "}
+              <span className={classes.specialText}>celebration.</span>
+            </Typography>
+            <Button variant="outlined" className={classes.learnButton}>
+              <span style={{ marginRight: 10 }}>Learn More</span>
+              <ButtonArrow
+                width={"10"}
+                height={"10"}
+                fill={theme.palette.common.blue}
+              />
+            </Button>
           </Grid>
-          <Grid item sm className={classes.animationContainer}>
-            <Lottie options={defaultOptions} height={"100%"} width={"100%"} />
+          <Grid item>
+            <img alt="custom software icon" src={CustomSoftwareIcon} />
           </Grid>
         </Grid>
       </Grid>
