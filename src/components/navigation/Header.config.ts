@@ -104,7 +104,7 @@ export const menuItems: IMenuItem[] = [
     selectedIndex: 0,
   },
   {
-    name: "Mobile App Development",
+    name: "iOS/Android App Development",
     link: "/mobileapps",
     activeIndex: 1,
     selectedIndex: 1,
