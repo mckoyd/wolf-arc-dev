@@ -23,5 +23,20 @@ export const useLandingPageStyles = tss.create(({ theme }) => ({
     fontSize: "0.7rem",
     height: 35,
     padding: 5,
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "2em",
+    },
+  },
+  icon: {
+    marginLeft: "2em",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+    },
+  },
+  servicesContainer: {
+    marginTop: "12em",
+    [theme.breakpoints.down("sm")]: {
+      padding: 25,
+    },
   },
 }));
