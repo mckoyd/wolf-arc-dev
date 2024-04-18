@@ -49,6 +49,25 @@ const theme: Theme = createTheme({
       fontSize: "1rem",
       color: "white",
     },
+    h2: {
+      fontFamily: "Raleway",
+      fontSize: "2.5rem",
+      fontWeight: 700,
+      color: blue,
+      lineHeight: 1.5,
+    },
+    h3: {
+      fontFamily: "Pacifico",
+      fontSize: "1rem",
+      textTransform: "none",
+      color: "white",
+    },
+    h4: {
+      fontFamily: "Raleway",
+      fontSize: "1.75rem",
+      color: blue,
+      fontWeight: 700,
+    },
   },
 });
 

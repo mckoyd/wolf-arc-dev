@@ -4,10 +4,10 @@ import ElevationScroll from "../components/wrappers/ElevationScroll";
 import Header from "../components/navigation/Header";
 import { useAppStyles } from "./App.config";
 
-import "../styles/App.css";
 import { Route, Routes } from "react-router-dom";
 import Footer from "../components/navigation/Footer";
 import { Grid } from "@mui/material";
+import LandingPage from "./LandingPage";
 
 const App: React.FC = () => {
   const { classes } = useAppStyles();
@@ -26,7 +26,7 @@ const App: React.FC = () => {
       </ElevationScroll>
       <div className={classes.toolbarMargin} />
       <Routes>
-        <Route path="/*" element={<div>Home</div>} />
+        <Route path="/*" element={<LandingPage />} />
         <Route path="/services" element={<div>Services</div>} />
         <Route path="/customsoftware" element={<div>Custom Software</div>} />
         <Route path="/mobileapps" element={<div>Mobile Apps</div>} />

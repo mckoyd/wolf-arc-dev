@@ -20,3 +20,10 @@ export interface IHeaderFooter {
   headerTabValue: number;
   setHeaderTabValue: (headerTabValue: number) => void;
 }
+
+export interface IButtonArrow {
+  btnArrowClass?: string;
+  width: string;
+  height: string;
+  fill: string;
+}
