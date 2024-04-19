@@ -12,6 +12,8 @@ import Typography from "@mui/material/Typography";
 import IOSAndroidBlock from "../components/IOSAndroidBlock.tsx";
 import WebsitesBlock from "../components/WebsitesBlock.tsx";
 import RevolutionBlock from "../components/RevolutionBlock.tsx";
+import InformationBlock from "../components/InformationBlock.tsx";
+import CallToAction from "../components/CallToAction.tsx";
 
 const LandingPage: React.FC = () => {
   const theme = useTheme();
@@ -25,6 +27,10 @@ const LandingPage: React.FC = () => {
       <IOSAndroidBlock />
       <WebsitesBlock />
       <RevolutionBlock />
+      <InformationBlock />
+      <Grid item>
+        <CallToAction />
+      </Grid>
     </Grid>
   );
 };
