@@ -7,7 +7,7 @@ import { useTheme } from "@mui/material/styles";
 import HeroBlock from "../components/HeroBlock.tsx";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
-import ServicesBlock from "../components/ServicesBlock.tsx";
+import CustomSoftwareBlock from "../components/CustomSoftwareBlock.tsx";
 import Typography from "@mui/material/Typography";
 import IOSAndroidBlock from "../components/IOSAndroidBlock.tsx";
 import WebsitesBlock from "../components/WebsitesBlock.tsx";
@@ -20,7 +20,7 @@ const LandingPage: React.FC = () => {
   return (
     <Grid container direction="column" className={classes.mainContainer}>
       <HeroBlock />
-      <ServicesBlock />
+      <CustomSoftwareBlock />
       <IOSAndroidBlock />
       <WebsitesBlock />
     </Grid>

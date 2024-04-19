@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import { tss } from "tss-react/mui";
 
-export const useServicesBlockStyles = tss.create(({ theme }) => ({
+export const useCustomSoftwareBlockStyles = tss.create(({ theme }) => ({
   servicesContainer: {
     marginTop: "12em",
     [theme.breakpoints.down("sm")]: {

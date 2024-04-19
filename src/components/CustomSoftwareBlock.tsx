@@ -7,11 +7,11 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { useTheme } from "@mui/material/styles";
 import CustomSoftwareIcon from "../assets/images/Custom Software Icon.svg";
-import { useServicesBlockStyles } from "./ServicesBlock.config";
+import { useCustomSoftwareBlockStyles } from "./CustomSoftwareBlock.config";
 
-const ServicesBlock: React.FC = () => {
+const CustomSoftwareBlock: React.FC = () => {
   const theme = useTheme();
-  const { classes } = useServicesBlockStyles();
+  const { classes } = useCustomSoftwareBlockStyles();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid item>
@@ -57,4 +57,4 @@ const ServicesBlock: React.FC = () => {
   );
 };
 
-export default ServicesBlock;
+export default CustomSoftwareBlock;
