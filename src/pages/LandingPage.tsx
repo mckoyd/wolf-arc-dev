@@ -10,6 +10,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import ServicesBlock from "../components/ServicesBlock.tsx";
 import Typography from "@mui/material/Typography";
 import IOSAndroidBlock from "../components/IOSAndroidBlock.tsx";
+import WebsitesBlock from "../components/WebsitesBlock.tsx";
 
 const LandingPage: React.FC = () => {
   const theme = useTheme();
@@ -21,6 +22,7 @@ const LandingPage: React.FC = () => {
       <HeroBlock />
       <ServicesBlock />
       <IOSAndroidBlock />
+      <WebsitesBlock />
     </Grid>
   );
 };
