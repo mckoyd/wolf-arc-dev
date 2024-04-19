@@ -11,6 +11,7 @@ import CustomSoftwareBlock from "../components/CustomSoftwareBlock.tsx";
 import Typography from "@mui/material/Typography";
 import IOSAndroidBlock from "../components/IOSAndroidBlock.tsx";
 import WebsitesBlock from "../components/WebsitesBlock.tsx";
+import RevolutionBlock from "../components/RevolutionBlock.tsx";
 
 const LandingPage: React.FC = () => {
   const theme = useTheme();
@@ -23,6 +24,7 @@ const LandingPage: React.FC = () => {
       <CustomSoftwareBlock />
       <IOSAndroidBlock />
       <WebsitesBlock />
+      <RevolutionBlock />
     </Grid>
   );
 };

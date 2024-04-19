@@ -61,9 +61,8 @@ const theme: Theme = createTheme({
     },
     h3: {
       fontFamily: "Pacifico",
-      fontSize: "1rem",
-      textTransform: "none",
-      color: "white",
+      fontSize: "2.5rem",
+      color: blue,
     },
     h4: {
       fontFamily: "Raleway",
