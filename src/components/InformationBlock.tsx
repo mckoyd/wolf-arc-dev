@@ -8,6 +8,7 @@ import {
 import React from "react";
 import { useInformationBlockStyles } from "./InformationBlock.config";
 import ButtonArrow from "./ButtonArrow";
+import { Link } from "react-router-dom";
 
 const InformationBlock: React.FC = () => {
   const { classes } = useInformationBlockStyles();
@@ -44,6 +45,8 @@ const InformationBlock: React.FC = () => {
                 <Button
                   variant="outlined"
                   className={classes.infoButtonRevolution}
+                  component={Link}
+                  to="/about"
                 >
                   <span style={{ marginRight: 10 }}>Learn More</span>
                   <ButtonArrow width="15" height="15" fill="white" />
@@ -74,6 +77,8 @@ const InformationBlock: React.FC = () => {
                 <Button
                   variant="outlined"
                   className={classes.infoButtonRevolution}
+                  component={Link}
+                  to="/contact"
                 >
                   <span style={{ marginRight: 10 }}>Learn More</span>
                   <ButtonArrow width="15" height="15" fill="white" />

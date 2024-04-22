@@ -9,6 +9,7 @@ import {
 import React from "react";
 import ButtonArrow from "./ButtonArrow";
 import { useRevolutionBlockStyles } from "./RevolutionBlock.config";
+import { Link } from "react-router-dom";
 
 const RevolutionBlock: React.FC = () => {
   const theme = useTheme();
@@ -39,6 +40,8 @@ const RevolutionBlock: React.FC = () => {
                 <Button
                   variant="outlined"
                   className={classes.learnButtonRevolution}
+                  component={Link}
+                  to="/revolution"
                 >
                   <span style={{ marginRight: 10 }}>Learn More</span>
                   <ButtonArrow

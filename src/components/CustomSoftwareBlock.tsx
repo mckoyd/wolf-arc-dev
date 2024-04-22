@@ -8,6 +8,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import CustomSoftwareIcon from "../assets/images/Custom Software Icon.svg";
 import { useCustomSoftwareBlockStyles } from "./CustomSoftwareBlock.config";
+import { Link } from "react-router-dom";
 
 const CustomSoftwareBlock: React.FC = () => {
   const theme = useTheme();
@@ -36,7 +37,12 @@ const CustomSoftwareBlock: React.FC = () => {
             Complete digital solutions, from investigation to{" "}
             <span className={classes.specialText}>celebration.</span>
           </Typography>
-          <Button variant="outlined" className={classes.learnButton}>
+          <Button
+            variant="outlined"
+            className={classes.learnButton}
+            component={Link}
+            to="/customsoftware"
+          >
             <span style={{ marginRight: 10 }}>Learn More</span>
             <ButtonArrow
               width={"10"}

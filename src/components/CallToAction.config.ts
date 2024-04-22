@@ -19,10 +19,12 @@ export const useCallToActionStyles = tss.create(({ theme }) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
     height: "60em",
     width: "100%",
     [theme.breakpoints.down("md")]: {
       backgroundImage: `url(${MobileBackground})`,
+      backgroundAttachment: "inherit",
     },
   },
   estimateBtn: {
@@ -33,5 +35,10 @@ export const useCallToActionStyles = tss.create(({ theme }) => ({
     backgroundColor: theme.palette.common.orange,
     fontSize: "1.5rem",
     marginRight: "5em",
+    marginLeft: "2em",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+      marginRight: 0,
+    },
   },
 }));

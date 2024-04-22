@@ -1,9 +1,11 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import React from "react";
 import { useWebsitesBlockStyles } from "./WebsitesBlock.config";
 import WebsiteIcon from "../assets/images/websiteIcon.svg";
+import ButtonArrow from "./ButtonArrow";
+import { Link } from "react-router-dom";
 
 const WebsitesBlock: React.FC = () => {
   const theme = useTheme();
@@ -31,6 +33,19 @@ const WebsitesBlock: React.FC = () => {
           <Typography variant="subtitle1">
             Optimized for Search Engines, built for speed.
           </Typography>
+          <Button
+            variant="outlined"
+            className={classes.websitesBtn}
+            component={Link}
+            to="/websites"
+          >
+            <span style={{ marginRight: 10 }}>Learn More</span>
+            <ButtonArrow
+              width="15"
+              height="15"
+              fill={theme.palette.common.blue}
+            />
+          </Button>
         </Grid>
         <Grid item style={{ marginLeft: matchesSM ? 0 : "2em" }}>
           <img alt="website icon" src={WebsiteIcon} />

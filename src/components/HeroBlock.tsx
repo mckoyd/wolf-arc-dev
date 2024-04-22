@@ -8,6 +8,7 @@ import ButtonArrow from "./ButtonArrow";
 
 import animationData from "../assets/animations/landinganimation/data.js";
 import Lottie from "react-lottie";
+import { Link } from "react-router-dom";
 
 const HeroBlock: React.FC = () => {
   const theme = useTheme();
@@ -40,12 +41,22 @@ const HeroBlock: React.FC = () => {
             className={classes.buttonContainer}
           >
             <Grid item>
-              <Button variant="contained" className={classes.estimateButton}>
+              <Button
+                variant="contained"
+                component={Link}
+                to="/estimate"
+                className={classes.estimateButton}
+              >
                 Free Estimate
               </Button>
             </Grid>
             <Grid item>
-              <Button variant="outlined" className={classes.learnButtonHero}>
+              <Button
+                variant="outlined"
+                component={Link}
+                to="/revolution"
+                className={classes.learnButtonHero}
+              >
                 <span style={{ marginRight: 10 }}>Learn More</span>
                 <ButtonArrow
                   width="15"
