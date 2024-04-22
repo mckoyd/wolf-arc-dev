@@ -27,6 +27,7 @@ const CustomSoftwareBlock: React.FC = () => {
           style={{
             marginLeft: matchesSM ? 0 : "5em",
             textAlign: matchesSM ? "center" : undefined,
+            width: matchesSM ? undefined : "35em",
           }}
         >
           <Typography variant="h4">Custom Software Development</Typography>

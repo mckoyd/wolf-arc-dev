@@ -8,14 +8,18 @@ import MobileAppsIcon from "../assets/images/mobileIcon.svg";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import ButtonArrow from "./ButtonArrow";
+import { IIOSAndroidBlock } from "../interfaces";
 
-const IOSAndroidBlock: React.FC = () => {
+const IOSAndroidBlock: React.FC<IIOSAndroidBlock> = ({ reduceMargin }) => {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const { classes } = useIOSAndroidBlockStyles();
   return (
     <Grid item>
       <Grid
+        style={{
+          ...(reduceMargin && { marginTop: "5em" }),
+        }}
         container
         direction={"row"}
         justifyContent={matchesSM ? "center" : "flex-end"}
@@ -25,6 +29,7 @@ const IOSAndroidBlock: React.FC = () => {
           item
           style={{
             textAlign: matchesSM ? "center" : undefined,
+            width: matchesSM ? undefined : "35em",
           }}
         >
           <Typography variant="h4">iOS/Android App Development</Typography>

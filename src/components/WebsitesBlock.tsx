@@ -16,7 +16,10 @@ const WebsitesBlock: React.FC<IWebsitesBlock> = ({ justify }) => {
     <Grid
       item
       style={{
-        ...(Boolean(justify) && { marginRight: matchesSM ? 0 : "5em" }),
+        ...(Boolean(justify) && {
+          marginRight: matchesSM ? 0 : "5em",
+          marginBottom: "10em",
+        }),
       }}
     >
       <Grid
@@ -30,6 +33,7 @@ const WebsitesBlock: React.FC<IWebsitesBlock> = ({ justify }) => {
           style={{
             textAlign: matchesSM ? "center" : undefined,
             ...(!Boolean(justify) && { marginLeft: matchesSM ? 0 : "5em" }),
+            width: matchesSM ? undefined : "35em",
           }}
         >
           <Typography variant="h4">Website Development</Typography>

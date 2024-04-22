@@ -31,3 +31,7 @@ export interface IButtonArrow {
 export interface IWebsitesBlock {
   justify?: string;
 }
+
+export interface IIOSAndroidBlock {
+  reduceMargin?: boolean;
+}
