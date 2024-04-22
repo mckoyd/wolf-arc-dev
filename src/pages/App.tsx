@@ -9,6 +9,7 @@ import Footer from "../components/navigation/Footer";
 import { Grid } from "@mui/material";
 import LandingPage from "./LandingPage";
 import ServicesPage from "./ServicesPage";
+import CustomSoftwarePage from "./CustomSoftwarePage";
 
 const App: React.FC = () => {
   const { classes } = useAppStyles();
@@ -28,8 +29,8 @@ const App: React.FC = () => {
       <div className={classes.toolbarMargin} />
       <Routes>
         <Route path="/*" element={<LandingPage />} />
-        <Route path="/services" element={<div>Services</div>} />
-        <Route path="/customsoftware" element={<ServicesPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/customsoftware" element={<CustomSoftwarePage />} />
         <Route path="/mobileapps" element={<div>Mobile Apps</div>} />
         <Route path="/websites" element={<div>Websites</div>} />
         <Route path="/revolution" element={<div>The Revolution</div>} />

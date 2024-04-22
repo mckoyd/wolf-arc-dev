@@ -80,6 +80,11 @@ const theme: Theme = createTheme({
       fontSize: "1.25rem",
       fontWeight: 300,
     },
+    body1: {
+      fontSize: "1.25rem",
+      color: grey,
+      fontWeight: 300,
+    },
     learnBtn: {
       borderColor: blue,
       color: blue,
