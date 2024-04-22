@@ -27,3 +27,7 @@ export interface IButtonArrow {
   height: string;
   fill: string;
 }
+
+export interface IWebsitesBlock {
+  justify?: string;
+}

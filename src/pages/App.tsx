@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "../components/navigation/Footer";
 import { Grid } from "@mui/material";
 import LandingPage from "./LandingPage";
+import ServicesPage from "./ServicesPage";
 
 const App: React.FC = () => {
   const { classes } = useAppStyles();
@@ -28,7 +29,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/*" element={<LandingPage />} />
         <Route path="/services" element={<div>Services</div>} />
-        <Route path="/customsoftware" element={<div>Custom Software</div>} />
+        <Route path="/customsoftware" element={<ServicesPage />} />
         <Route path="/mobileapps" element={<div>Mobile Apps</div>} />
         <Route path="/websites" element={<div>Websites</div>} />
         <Route path="/revolution" element={<div>The Revolution</div>} />

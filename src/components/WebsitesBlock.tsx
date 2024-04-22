@@ -6,24 +6,30 @@ import { useWebsitesBlockStyles } from "./WebsitesBlock.config";
 import WebsiteIcon from "../assets/images/websiteIcon.svg";
 import ButtonArrow from "./ButtonArrow";
 import { Link } from "react-router-dom";
+import { IWebsitesBlock } from "../interfaces";
 
-const WebsitesBlock: React.FC = () => {
+const WebsitesBlock: React.FC<IWebsitesBlock> = ({ justify }) => {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const { classes } = useWebsitesBlockStyles();
   return (
-    <Grid item>
+    <Grid
+      item
+      style={{
+        ...(Boolean(justify) && { marginRight: matchesSM ? 0 : "5em" }),
+      }}
+    >
       <Grid
         container
         direction={"row"}
-        justifyContent={matchesSM ? "center" : "flex-start"}
+        justifyContent={matchesSM ? "center" : justify || "flex-start"}
         className={classes.websitesContainer}
       >
         <Grid
           item
           style={{
             textAlign: matchesSM ? "center" : undefined,
-            marginLeft: matchesSM ? 0 : "5em",
+            ...(!Boolean(justify) && { marginLeft: matchesSM ? 0 : "5em" }),
           }}
         >
           <Typography variant="h4">Website Development</Typography>
