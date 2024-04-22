@@ -15,4 +15,7 @@ export const useCustomSoftwarePageStyles = tss.create(({ theme }) => ({
       background: "transparent",
     },
   },
+  itemContainer: {
+    maxWidth: "40em",
+  },
 }));
