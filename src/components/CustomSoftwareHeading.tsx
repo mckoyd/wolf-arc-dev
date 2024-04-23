@@ -15,6 +15,7 @@ import ForwardArrow from "../assets/images/forwardArrow.svg";
 const CustomSoftwareHeading: FC = () => {
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const { classes } = useCustomSoftwareHeadingStyles();
 
   return (
@@ -23,6 +24,7 @@ const CustomSoftwareHeading: FC = () => {
       container
       direction={"row"}
       justifyContent={matchesMD ? "center" : undefined}
+      className={classes.rowContainer}
     >
       <Grid
         item
@@ -30,6 +32,7 @@ const CustomSoftwareHeading: FC = () => {
         style={{
           marginRight: "1em",
           marginLeft: "-3.5em",
+          marginTop: matchesSM ? "1em" : "2em",
         }}
       >
         <IconButton

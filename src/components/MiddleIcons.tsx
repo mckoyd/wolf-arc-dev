@@ -4,10 +4,12 @@ import { FC } from "react";
 import LightBulb from "../assets/images/bulb.svg";
 import StopWatch from "../assets/images/stopwatch.svg";
 import Cash from "../assets/images/cash.svg";
+import { useMiddleIconsStyles } from "./MiddleIcons.config";
 
 const MiddleIcons: FC = () => {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const { classes } = useMiddleIconsStyles();
 
   return (
     <Grid
@@ -15,6 +17,7 @@ const MiddleIcons: FC = () => {
       container
       justifyContent={"center"}
       style={{ marginTop: "15em", marginBottom: "20em" }}
+      className={classes.rowContainer}
     >
       <Grid
         item

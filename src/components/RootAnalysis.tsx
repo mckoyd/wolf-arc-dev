@@ -1,19 +1,29 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { FC } from "react";
 import Roots from "../assets/images/root.svg";
 import { useRootAnalysisStyles } from "./RootAnalysis.config";
+import CallToAction from "./CallToAction";
 
 const RootAnalysis: FC = () => {
+  const theme = useTheme();
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const { classes } = useRootAnalysisStyles();
+
   return (
-    <Grid item container justifyContent={"center"} style={{ margin: "20em 0" }}>
+    <Grid
+      item
+      container
+      justifyContent={"center"}
+      style={{ margin: "20em 0" }}
+      className={classes.rowContainer}
+    >
       <Grid item container direction={"column"} alignItems={"center"}>
         <Grid item>
           <img
             src={Roots}
             alt={"tree with roots extending out"}
-            height={"450em"}
-            width={"450em"}
+            height={matchesMD ? "300em" : "450em"}
+            width={matchesMD ? "300em" : "450em"}
           />
         </Grid>
       </Grid>

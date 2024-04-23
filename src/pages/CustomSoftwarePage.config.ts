@@ -1,7 +1,10 @@
 import { tss } from "tss-react/mui";
 
 export const useCustomSoftwarePageStyles = tss.create(({ theme }) => ({
-  mainContainer: {
-    padding: "2em 5em 10em 5em",
+  rowContainer: {
+    padding: "0 5em",
+    [theme.breakpoints.down("sm")]: {
+      padding: "0 1.5em",
+    },
   },
 }));

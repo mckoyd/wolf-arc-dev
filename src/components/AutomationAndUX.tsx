@@ -32,9 +32,10 @@ const AutomationAndUX: FC = () => {
       item
       container
       justifyContent={"space-around"}
-      style={{ marginBottom: "10em" }}
+      style={{ marginBottom: "20em" }}
       direction={matchesMD ? "column" : "row"}
       alignItems={matchesMD ? "center" : undefined}
+      className={classes.rowContainer}
     >
       <Grid
         item
@@ -42,6 +43,7 @@ const AutomationAndUX: FC = () => {
         className={classes.itemContainer}
         md
         style={{ marginBottom: matchesMD ? "15em" : 0 }}
+        direction={matchesMD ? "column" : "row"}
       >
         <Grid item container direction="column" md>
           <Grid item>
@@ -70,7 +72,13 @@ const AutomationAndUX: FC = () => {
         </Grid>
       </Grid>
 
-      <Grid item container className={classes.itemContainer} md>
+      <Grid
+        item
+        container
+        className={classes.itemContainer}
+        md
+        direction={matchesMD ? "column" : "row"}
+      >
         <Grid item md>
           <Lottie
             options={uxOptions}

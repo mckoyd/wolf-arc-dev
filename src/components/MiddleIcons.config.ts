@@ -1,9 +1,6 @@
 import { tss } from "tss-react/mui";
 
-export const useAutomationAndUXStyles = tss.create(({ theme }) => ({
-  itemContainer: {
-    maxWidth: "40em",
-  },
+export const useMiddleIconsStyles = tss.create(({ theme }) => ({
   rowContainer: {
     padding: "0 5em",
     [theme.breakpoints.down("sm")]: {
