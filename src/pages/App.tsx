@@ -10,6 +10,7 @@ import { Grid } from "@mui/material";
 import LandingPage from "./LandingPage";
 import ServicesPage from "./ServicesPage";
 import CustomSoftwarePage from "./CustomSoftwarePage";
+import MobileApps from "./MobileApps";
 
 const App: React.FC = () => {
   const { classes } = useAppStyles();
@@ -31,7 +32,7 @@ const App: React.FC = () => {
         <Route path="/*" element={<LandingPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/customsoftware" element={<CustomSoftwarePage />} />
-        <Route path="/mobileapps" element={<div>Mobile Apps</div>} />
+        <Route path="/mobileapps" element={<MobileApps />} />
         <Route path="/websites" element={<div>Websites</div>} />
         <Route path="/revolution" element={<div>The Revolution</div>} />
         <Route path="/about" element={<div>About Us</div>} />

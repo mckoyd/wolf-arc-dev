@@ -21,6 +21,7 @@ const HeroBlock: React.FC = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
   return (
     <Grid item>
       <Grid

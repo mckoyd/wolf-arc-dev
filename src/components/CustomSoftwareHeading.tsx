@@ -25,6 +25,7 @@ const CustomSoftwareHeading: FC = () => {
       direction={"row"}
       justifyContent={matchesMD ? "center" : undefined}
       className={classes.rowContainer}
+      style={{ marginTop: matchesSM ? "1em" : "2em" }}
     >
       <Grid
         item
@@ -32,7 +33,6 @@ const CustomSoftwareHeading: FC = () => {
         style={{
           marginRight: "1em",
           marginLeft: "-3.5em",
-          marginTop: matchesSM ? "1em" : "2em",
         }}
       >
         <IconButton
@@ -41,7 +41,7 @@ const CustomSoftwareHeading: FC = () => {
           className={classes.arrowBtn}
           style={{ display: matchesMD ? "none" : undefined }}
         >
-          <img src={BackArrow} alt="back to services page" />
+          <img src={BackArrow} alt="Back to Services Page" />
         </IconButton>
       </Grid>
       <Grid item container direction="column" className={classes.heading}>
@@ -96,7 +96,10 @@ const CustomSoftwareHeading: FC = () => {
           to="/mobileapps"
           style={{ display: matchesMD ? "none" : undefined }}
         >
-          <img src={ForwardArrow} alt="forward arrow" />
+          <img
+            src={ForwardArrow}
+            alt="Forward to iOS/Android App Development Page"
+          />
         </IconButton>
       </Grid>
     </Grid>
