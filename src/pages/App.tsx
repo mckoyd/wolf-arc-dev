@@ -11,6 +11,7 @@ import LandingPage from "./LandingPage";
 import ServicesPage from "./ServicesPage";
 import CustomSoftwarePage from "./CustomSoftwarePage";
 import MobileApps from "./MobileApps";
+import WebsitesPage from "./WebsitesPage";
 
 const App: React.FC = () => {
   const { classes } = useAppStyles();
@@ -33,7 +34,7 @@ const App: React.FC = () => {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/customsoftware" element={<CustomSoftwarePage />} />
         <Route path="/mobileapps" element={<MobileApps />} />
-        <Route path="/websites" element={<div>Websites</div>} />
+        <Route path="/websites" element={<WebsitesPage />} />
         <Route path="/revolution" element={<div>The Revolution</div>} />
         <Route path="/about" element={<div>About Us</div>} />
         <Route path="/contact" element={<div>Contact Us</div>} />
