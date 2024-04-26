@@ -14,6 +14,7 @@ import AnaylticsImg from "../assets/images/analytics.svg";
 import ECommerceImg from "../assets/images/ecommerce.svg";
 import OutreachImg from "../assets/images/outreach.svg";
 import SEOImg from "../assets/images/seo.svg";
+import CallToAction from "../components/CallToAction";
 
 const WebsitesPage: React.FC = () => {
   const theme = useTheme();
@@ -93,14 +94,19 @@ const WebsitesPage: React.FC = () => {
       <Grid
         item
         container
-        direction={"row"}
+        direction={matchesSM ? "column" : "row"}
         alignItems="center"
         className={classes.rowContainer}
+        style={{ marginTop: "15em" }}
       >
         <Grid item>
           <Grid container direction="column">
             <Grid item>
-              <Typography variant="h4" gutterBottom>
+              <Typography
+                variant="h4"
+                gutterBottom
+                align={matchesSM ? "center" : undefined}
+              >
                 Analytics
               </Typography>
             </Grid>
@@ -114,11 +120,15 @@ const WebsitesPage: React.FC = () => {
           </Grid>
         </Grid>
 
-        <Grid item>
+        <Grid
+          item
+          style={{ marginLeft: matchesSM ? 0 : "1em" }}
+          className={classes.paragraphContainer}
+        >
           <Typography
             variant="body1"
             paragraph
-            className={classes.paragraphContainer}
+            align={matchesSM ? "center" : undefined}
           >
             Knowledge is power, and data is 21st Century gold. Analyzing this
             data can reveal hidden patterns and trends in your business,
@@ -126,6 +136,150 @@ const WebsitesPage: React.FC = () => {
           </Typography>
         </Grid>
       </Grid>
+
+      <Grid
+        item
+        container
+        direction={matchesSM ? "column" : "row"}
+        alignItems="center"
+        className={classes.rowContainer}
+        justifyContent={"flex-end"}
+        style={{ margin: "15em 0" }}
+      >
+        <Grid item>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography variant="h4" gutterBottom align="center">
+                E-Commerce
+              </Typography>
+            </Grid>
+            <Grid item>
+              <img
+                src={ECommerceImg}
+                alt="world globe composed of money signs"
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid
+          item
+          style={{ marginLeft: matchesSM ? 0 : "1em" }}
+          className={classes.paragraphContainer}
+        >
+          <Typography
+            variant="body1"
+            paragraph
+            align={matchesSM ? "center" : undefined}
+          >
+            It’s no secret that people like to shop online.
+          </Typography>
+          <Typography
+            variant="body1"
+            paragraph
+            align={matchesSM ? "center" : undefined}
+          >
+            In 2017 over $2.3 trillion was spent in e-commerce, and it’s time
+            for your slice of that pie.
+          </Typography>
+        </Grid>
+      </Grid>
+
+      <Grid
+        item
+        container
+        direction={matchesSM ? "column" : "row"}
+        alignItems="center"
+        className={classes.rowContainer}
+      >
+        <Grid item>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography
+                variant="h4"
+                gutterBottom
+                align={matchesSM ? "center" : undefined}
+              >
+                Outreach
+              </Typography>
+            </Grid>
+            <Grid item>
+              <img src={OutreachImg} alt="megaphone" />
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid
+          item
+          style={{ marginLeft: matchesSM ? 0 : "1em" }}
+          className={classes.paragraphContainer}
+        >
+          <Typography
+            variant="body1"
+            paragraph
+            align={matchesSM ? "center" : undefined}
+          >
+            Draw people in with a dazzling website. Showing off your products
+            online is a great way to help customers decide what’s right for them
+            before visiting in person.
+          </Typography>
+        </Grid>
+      </Grid>
+
+      <Grid
+        item
+        container
+        direction={matchesSM ? "column" : "row"}
+        alignItems="center"
+        className={classes.rowContainer}
+        justifyContent={"flex-end"}
+        style={{ margin: "15em 0" }}
+      >
+        <Grid item>
+          <Grid container direction="column" alignItems="center">
+            <Grid item>
+              <Typography variant="h4" gutterBottom align="center">
+                Search Engine
+                <br />
+                Optimization
+              </Typography>
+            </Grid>
+            <Grid item>
+              <img src={SEOImg} alt="website standing on winner's podium" />
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid
+          item
+          style={{ marginLeft: matchesSM ? 0 : "1em" }}
+          className={classes.paragraphContainer}
+        >
+          <Typography
+            variant="body1"
+            paragraph
+            align={matchesSM ? "center" : undefined}
+          >
+            How often have you ever been to the second page of Google results?
+          </Typography>
+          <Typography
+            variant="body1"
+            paragraph
+            align={matchesSM ? "center" : undefined}
+          >
+            If you’re like us, probably never.
+          </Typography>
+          <Typography
+            variant="body1"
+            paragraph
+            align={matchesSM ? "center" : undefined}
+          >
+            Customers don’t go there either, so we make sure your website is
+          </Typography>
+        </Grid>
+      </Grid>
+
+      <CallToAction />
     </Grid>
   );
 };
