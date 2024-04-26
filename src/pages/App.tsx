@@ -12,6 +12,7 @@ import ServicesPage from "./ServicesPage";
 import CustomSoftwarePage from "./CustomSoftwarePage";
 import MobileApps from "./MobileApps";
 import WebsitesPage from "./WebsitesPage";
+import RevolutionPage from "./RevolutionPage.tsx";
 
 const App: React.FC = () => {
   const { classes } = useAppStyles();
@@ -35,7 +36,7 @@ const App: React.FC = () => {
         <Route path="/customsoftware" element={<CustomSoftwarePage />} />
         <Route path="/mobileapps" element={<MobileApps />} />
         <Route path="/websites" element={<WebsitesPage />} />
-        <Route path="/revolution" element={<div>The Revolution</div>} />
+        <Route path="/revolution" element={<RevolutionPage />} />
         <Route path="/about" element={<div>About Us</div>} />
         <Route path="/contact" element={<div>Contact Us</div>} />
         <Route path="/estimate" element={<div>Estimate</div>} />
