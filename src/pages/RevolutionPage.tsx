@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { useRevolutionPageStyles } from "./RevolutionPage";
+import { useRevolutionPageStyles } from "./RevolutionPage.config";
 import VisionImg from "../assets/images/vision.svg";
 import ConsultationImg from "../assets/images/consultationIcon.svg";
 import MockupImg from "../assets/images/mockupIcon.svg";
