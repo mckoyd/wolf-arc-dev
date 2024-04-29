@@ -17,5 +17,11 @@ export const useAboutUsStyles = tss.create(({ theme }) => ({
   avatar: {
     height: "25em",
     width: "25em",
+    [theme.breakpoints.down("sm")]: {
+      height: "20em",
+      width: "20em",
+      maxHeight: "18.75em",
+      maxWidth: "18.75em",
+    },
   },
 }));
