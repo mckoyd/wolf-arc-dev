@@ -100,6 +100,30 @@ const theme: Theme = createTheme({
       fontWeight: "bold",
     },
   },
+  components: {
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: blue,
+          fontSize: "1rem",
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          "&:hover:not(.Mui-disabled, .Mui-error):before": {
+            borderBottom: `2px solid ${blue}`,
+          },
+        },
+        underline: {
+          "&:before": {
+            borderBottom: `2px solid ${blue}`,
+          },
+        },
+      },
+    },
+  },
 });
 
 export default theme;

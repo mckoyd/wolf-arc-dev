@@ -130,10 +130,14 @@ const ContactPage: React.FC = () => {
             variant="standard"
             multiline
             rows={10}
+            className={classes.message}
+            InputProps={{
+              disableUnderline: true,
+            }}
           />
         </Grid>
         <Grid item>
-          <Button variant="contained">
+          <Button variant="contained" className={classes.sendBtn}>
             Send Message <img src={AirplaneIcon} alt="airplane" />
           </Button>
         </Grid>
