@@ -23,31 +23,49 @@ const ContactPage: React.FC = () => {
 
   const [name, setName] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
+  const [phoneHelper, setPhoneHelper] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [emailHelper, setEmailHelper] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
-  const handleNameChange = (
+  const handleFormInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setName(e.target.value);
-  };
+    let valid;
+    switch (e.target.id) {
+      case "name":
+        setName(e.target.value);
+        break;
+      case "email":
+        setEmail(e.target.value);
+        valid = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
+          e.target.value
+        );
 
-  const handleEmailChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setEmail(e.target.value);
-  };
+        if (!valid) {
+          setEmailHelper("Invalid email address");
+        } else {
+          setEmailHelper("");
+        }
+        break;
+      case "phone":
+        setPhone(e.target.value);
+        valid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(
+          e.target.value
+        );
 
-  const handlePhoneChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setPhone(e.target.value);
-  };
-
-  const handleMessageChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setMessage(e.target.value);
+        if (!valid) {
+          setPhoneHelper("Invalid phone number");
+        } else {
+          setPhoneHelper("");
+        }
+        break;
+      case "message":
+        setMessage(e.target.value);
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -129,7 +147,7 @@ const ContactPage: React.FC = () => {
                   id="name"
                   variant="standard"
                   value={name}
-                  onChange={handleNameChange}
+                  onChange={handleFormInputChange}
                   fullWidth
                 />
               </Grid>
@@ -139,8 +157,10 @@ const ContactPage: React.FC = () => {
                   id="email"
                   variant="standard"
                   value={email}
-                  onChange={handleEmailChange}
+                  onChange={handleFormInputChange}
                   fullWidth
+                  error={emailHelper.length !== 0}
+                  helperText={emailHelper}
                 />
               </Grid>
               <Grid item marginBottom={"0.5em"}>
@@ -149,8 +169,10 @@ const ContactPage: React.FC = () => {
                   id="phone"
                   variant="standard"
                   value={phone}
-                  onChange={handlePhoneChange}
+                  onChange={handleFormInputChange}
                   fullWidth
+                  error={phoneHelper.length !== 0}
+                  helperText={phoneHelper}
                 />
               </Grid>
             </Grid>
@@ -158,7 +180,7 @@ const ContactPage: React.FC = () => {
               <TextField
                 value={message}
                 id="message"
-                onChange={handleMessageChange}
+                onChange={handleFormInputChange}
                 variant="standard"
                 multiline
                 rows={10}
