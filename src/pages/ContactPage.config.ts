@@ -1,5 +1,6 @@
 import { tss } from "tss-react/mui";
 import BackgroundImg from "../assets/images/background.jpg";
+import MobileBackgroundImg from "../assets/images/mobileBackground.jpg";
 import { CSSProperties } from "react";
 
 export const useContactPageStyles = tss.create(({ theme }) => ({
@@ -10,13 +11,16 @@ export const useContactPageStyles = tss.create(({ theme }) => ({
     backgroundRepeat: "no-repeat",
     height: "60em",
     paddingBottom: "10em",
+    [theme.breakpoints.down("md")]: {
+      backgroundImage: `url(${MobileBackgroundImg})`,
+    },
   },
   callToActionBtn: {
     ...(theme.typography.learnBtn as CSSProperties),
     fontSize: "0.7rem",
     height: 35,
     padding: 5,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       marginBottom: "2em",
     },
   },
@@ -29,7 +33,7 @@ export const useContactPageStyles = tss.create(({ theme }) => ({
     fontSize: "1.5rem",
     marginRight: "5em",
     marginLeft: "2em",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       marginLeft: 0,
       marginRight: 0,
     },

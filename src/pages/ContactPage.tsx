@@ -16,6 +16,7 @@ import ButtonArrow from "../components/ButtonArrow";
 
 const ContactPage: React.FC = () => {
   const theme = useTheme();
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const { classes } = useContactPageStyles();
@@ -59,16 +60,25 @@ const ContactPage: React.FC = () => {
         alignItems={"center"}
         lg={4}
         xl={3}
+        style={{
+          marginTop: matchesSM ? "1em" : matchesMD ? "5em" : 0,
+          marginBottom: matchesMD ? "5em" : 0,
+        }}
       >
         <Grid item>
           <Grid item container direction={"column"}>
             <Grid item>
-              <Typography variant="h2" style={{ lineHeight: 1 }}>
+              <Typography
+                align={matchesMD ? "center" : undefined}
+                variant="h2"
+                style={{ lineHeight: 1 }}
+              >
                 Contact Us
               </Typography>
               <Typography
                 variant="body1"
                 style={{ color: theme.palette.common.blue }}
+                align={matchesMD ? "center" : undefined}
               >
                 We're waiting.
               </Typography>
@@ -107,32 +117,40 @@ const ContactPage: React.FC = () => {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item container style={{ maxWidth: "20em" }}>
-              <Grid item>
+            <Grid
+              item
+              container
+              direction="column"
+              style={{ maxWidth: "20em" }}
+            >
+              <Grid item marginBottom={"0.5em"}>
                 <TextField
                   label="Name"
                   id="name"
                   variant="standard"
                   value={name}
                   onChange={handleNameChange}
+                  fullWidth
                 />
               </Grid>
-              <Grid item>
+              <Grid item marginBottom={"0.5em"}>
                 <TextField
                   label="Email"
                   id="email"
                   variant="standard"
                   value={email}
                   onChange={handleEmailChange}
+                  fullWidth
                 />
               </Grid>
-              <Grid item>
+              <Grid item marginBottom={"0.5em"}>
                 <TextField
                   label="Phone"
                   id="phone"
                   variant="standard"
                   value={phone}
                   onChange={handlePhoneChange}
+                  fullWidth
                 />
               </Grid>
             </Grid>
@@ -148,6 +166,7 @@ const ContactPage: React.FC = () => {
                 InputProps={{
                   disableUnderline: true,
                 }}
+                fullWidth
               />
             </Grid>
             <Grid item container justifyContent={"center"} marginTop={"2em"}>
@@ -166,30 +185,36 @@ const ContactPage: React.FC = () => {
       <Grid
         item
         container
+        direction={matchesMD ? "column" : "row"}
         className={classes.bg}
         lg={8}
         xl={9}
         alignItems={"center"}
+        justifyContent={matchesMD ? "center" : undefined}
       >
         <Grid
           item
           style={{
-            marginLeft: matchesSM ? 0 : "3em",
-            textAlign: matchesSM ? "center" : "inherit",
+            marginLeft: matchesMD ? 0 : "3em",
+            textAlign: matchesMD ? "center" : "inherit",
           }}
         >
           <Grid container direction={"column"}>
             <Grid item>
-              <Typography variant="h2">
+              <Typography variant="h2" align={matchesMD ? "center" : undefined}>
                 Simple Software.
                 <br /> Revolutionary Results.
               </Typography>
-              <Typography variant="subtitle2" style={{ fontSize: "1.5rem" }}>
+              <Typography
+                variant="subtitle2"
+                style={{ fontSize: "1.5rem" }}
+                align={matchesMD ? "center" : undefined}
+              >
                 Take advantage of the 21st Century.
               </Typography>
               <Grid
                 container
-                justifyContent={matchesSM ? "center" : undefined}
+                justifyContent={matchesMD ? "center" : undefined}
                 item
               >
                 <Button

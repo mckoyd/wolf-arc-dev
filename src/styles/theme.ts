@@ -112,6 +112,8 @@ const theme: Theme = createTheme({
     MuiInput: {
       styleOverrides: {
         root: {
+          color: grey,
+          fontWeight: 300,
           "&:hover:not(.Mui-disabled, .Mui-error):before": {
             borderBottom: `2px solid ${blue}`,
           },
