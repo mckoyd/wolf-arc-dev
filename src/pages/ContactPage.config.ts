@@ -9,6 +9,7 @@ export const useContactPageStyles = tss.create(({ theme }) => ({
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     height: "60em",
+    paddingBottom: "10em",
   },
   callToActionBtn: {
     ...(theme.typography.learnBtn as CSSProperties),
