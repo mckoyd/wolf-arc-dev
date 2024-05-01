@@ -35,3 +35,18 @@ export interface IWebsitesBlock {
 export interface IIOSAndroidBlock {
   reduceMargin?: boolean;
 }
+
+export interface IConfirmationModal {
+  openConfirmationModal: boolean;
+  handleCloseConfirmationModal: () => void;
+  handleFormInputChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  email: string;
+  emailHelper: string;
+  phone: string;
+  phoneHelper: string;
+  message: string;
+  name: string;
+  handleSendMessageBtn: () => void;
+}

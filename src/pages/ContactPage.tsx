@@ -15,6 +15,7 @@ import EmailIcon from "../assets/images/email.svg";
 import AirplaneIcon from "../assets/images/send.svg";
 import { Link } from "react-router-dom";
 import ButtonArrow from "../components/ButtonArrow";
+import ConfirmationModal from "../components/ConfirmationModal";
 
 const ContactPage: React.FC = () => {
   const theme = useTheme();
@@ -238,114 +239,18 @@ const ContactPage: React.FC = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Dialog
-        open={openConfirmationModal}
-        onClose={handleCloseConfirmationModal}
-        style={{ zIndex: 1302 }}
-        PaperProps={{
-          style: {
-            padding: matchesMD ? "1em 0" : "5em 20em",
-          },
-        }}
-      >
-        <DialogContent>
-          <Grid container direction="column">
-            <Grid item>
-              <Typography variant="h4" gutterBottom align="center">
-                Confirm Message
-              </Typography>
-            </Grid>
-
-            <Grid item marginBottom={"0.5em"}>
-              <TextField
-                label="Name"
-                id="name"
-                variant="standard"
-                value={name}
-                onChange={handleFormInputChange}
-                fullWidth
-              />
-            </Grid>
-            <Grid item marginBottom={"0.5em"}>
-              <TextField
-                label="Email"
-                id="email"
-                variant="standard"
-                value={email}
-                onChange={handleFormInputChange}
-                fullWidth
-                error={emailHelper.length !== 0}
-                helperText={emailHelper}
-              />
-            </Grid>
-            <Grid item marginBottom={"0.5em"}>
-              <TextField
-                label="Phone"
-                id="phone"
-                variant="standard"
-                value={phone}
-                onChange={handleFormInputChange}
-                fullWidth
-                error={phoneHelper.length !== 0}
-                helperText={phoneHelper}
-              />
-            </Grid>
-            <Grid item style={{ maxWidth: "20em" }}>
-              <TextField
-                value={message}
-                id="message"
-                onChange={handleFormInputChange}
-                variant="standard"
-                multiline
-                rows={10}
-                className={classes.message}
-                InputProps={{
-                  disableUnderline: true,
-                }}
-                fullWidth
-              />
-            </Grid>
-            <Grid
-              item
-              container
-              style={{ marginTop: "2em" }}
-              alignItems={"center"}
-            >
-              <Grid item>
-                <Button
-                  color="primary"
-                  onClick={handleCloseConfirmationModal}
-                  style={{ fontWeight: 300 }}
-                >
-                  Cancel
-                </Button>
-              </Grid>
-              <Grid item>
-                <Button
-                  disabled={
-                    name.length === 0 ||
-                    message.length === 0 ||
-                    email.length === 0 ||
-                    phone.length === 0 ||
-                    phoneHelper.length !== 0 ||
-                    emailHelper.length !== 0
-                  }
-                  variant="contained"
-                  className={classes.sendBtn}
-                  onClick={handleSendMessageBtn}
-                >
-                  Send Message{" "}
-                  <img
-                    src={AirplaneIcon}
-                    alt="airplane"
-                    style={{ marginLeft: "1em" }}
-                  />
-                </Button>
-              </Grid>
-            </Grid>
-          </Grid>
-        </DialogContent>
-      </Dialog>
+      <ConfirmationModal
+        openConfirmationModal={openConfirmationModal}
+        handleCloseConfirmationModal={handleCloseConfirmationModal}
+        handleFormInputChange={handleFormInputChange}
+        email={email}
+        emailHelper={emailHelper}
+        phone={phone}
+        phoneHelper={phoneHelper}
+        message={message}
+        name={name}
+        handleSendMessageBtn={handleSendMessageBtn}
+      />
       <Grid
         item
         container

@@ -53,5 +53,9 @@ export const useContactPageStyles = tss.create(({ theme }) => ({
     "&:hover": {
       backgroundColor: theme.palette.secondary.light,
     },
+    [theme.breakpoints.down("sm")]: {
+      height: 40,
+      width: 225,
+    },
   },
 }));
