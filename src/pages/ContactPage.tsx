@@ -5,6 +5,8 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
+  Dialog,
+  DialogContent,
 } from "@mui/material";
 import React, { useState } from "react";
 import { useContactPageStyles } from "./ContactPage.config";
@@ -27,6 +29,8 @@ const ContactPage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [emailHelper, setEmailHelper] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [openConfirmationModal, setOpenConfirmationModal] =
+    useState<boolean>(false);
 
   const handleFormInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -66,6 +70,14 @@ const ContactPage: React.FC = () => {
       default:
         break;
     }
+  };
+
+  const handleSendMessageBtn = () => {
+    setOpenConfirmationModal(true);
+  };
+
+  const handleCloseConfirmationModal = () => {
+    setOpenConfirmationModal(false);
   };
 
   return (
@@ -213,6 +225,7 @@ const ContactPage: React.FC = () => {
                 }
                 variant="contained"
                 className={classes.sendBtn}
+                onClick={handleSendMessageBtn}
               >
                 Send Message{" "}
                 <img
@@ -225,6 +238,99 @@ const ContactPage: React.FC = () => {
           </Grid>
         </Grid>
       </Grid>
+      <Dialog
+        open={openConfirmationModal}
+        onClose={handleCloseConfirmationModal}
+      >
+        <DialogContent>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography variant="h4" gutterBottom>
+                Confirm Message
+              </Typography>
+            </Grid>
+
+            <Grid item marginBottom={"0.5em"}>
+              <TextField
+                label="Name"
+                id="name"
+                variant="standard"
+                value={name}
+                onChange={handleFormInputChange}
+                fullWidth
+              />
+            </Grid>
+            <Grid item marginBottom={"0.5em"}>
+              <TextField
+                label="Email"
+                id="email"
+                variant="standard"
+                value={email}
+                onChange={handleFormInputChange}
+                fullWidth
+                error={emailHelper.length !== 0}
+                helperText={emailHelper}
+              />
+            </Grid>
+            <Grid item marginBottom={"0.5em"}>
+              <TextField
+                label="Phone"
+                id="phone"
+                variant="standard"
+                value={phone}
+                onChange={handleFormInputChange}
+                fullWidth
+                error={phoneHelper.length !== 0}
+                helperText={phoneHelper}
+              />
+            </Grid>
+            <Grid item style={{ maxWidth: "20em" }}>
+              <TextField
+                value={message}
+                id="message"
+                onChange={handleFormInputChange}
+                variant="standard"
+                multiline
+                rows={10}
+                className={classes.message}
+                InputProps={{
+                  disableUnderline: true,
+                }}
+                fullWidth
+              />
+            </Grid>
+            <Grid item container>
+              <Grid item>
+                <Button color="primary" onClick={handleCloseConfirmationModal}>
+                  Cancel
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  disabled={
+                    name.length === 0 ||
+                    message.length === 0 ||
+                    email.length === 0 ||
+                    phone.length === 0 ||
+                    phoneHelper.length !== 0 ||
+                    emailHelper.length !== 0
+                  }
+                  variant="contained"
+                  className={classes.sendBtn}
+                  onClick={handleSendMessageBtn}
+                >
+                  Send Message{" "}
+                  <img
+                    src={AirplaneIcon}
+                    alt="airplane"
+                    style={{ marginLeft: "1em" }}
+                  />
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </DialogContent>
+      </Dialog>
       <Grid
         item
         container
