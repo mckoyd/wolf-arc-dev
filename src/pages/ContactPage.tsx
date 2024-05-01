@@ -241,11 +241,17 @@ const ContactPage: React.FC = () => {
       <Dialog
         open={openConfirmationModal}
         onClose={handleCloseConfirmationModal}
+        style={{ zIndex: 1302 }}
+        PaperProps={{
+          style: {
+            padding: matchesMD ? "1em 0" : "5em 20em",
+          },
+        }}
       >
         <DialogContent>
           <Grid container direction="column">
             <Grid item>
-              <Typography variant="h4" gutterBottom>
+              <Typography variant="h4" gutterBottom align="center">
                 Confirm Message
               </Typography>
             </Grid>
@@ -299,9 +305,18 @@ const ContactPage: React.FC = () => {
                 fullWidth
               />
             </Grid>
-            <Grid item container>
+            <Grid
+              item
+              container
+              style={{ marginTop: "2em" }}
+              alignItems={"center"}
+            >
               <Grid item>
-                <Button color="primary" onClick={handleCloseConfirmationModal}>
+                <Button
+                  color="primary"
+                  onClick={handleCloseConfirmationModal}
+                  style={{ fontWeight: 300 }}
+                >
                   Cancel
                 </Button>
               </Grid>
